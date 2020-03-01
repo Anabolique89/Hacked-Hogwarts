@@ -1,0 +1,317 @@
+@font-face {
+  src: url(Fonts/ParryHotter.ttf);
+  font-family: "ParryHotter";
+}
+:root {
+  --primary-color: grey;
+  --primary-img: url(imgs/Hufflepuff.png);
+  --theme-gryffindor-color: rgb(222, 70, 70);
+  --theme-hufflepuff-color: rgb(228, 204, 62);
+  --theme-ravenclaw-color: rgb(98, 111, 201);
+  --theme-slytherin-color: rgb(48, 163, 55);
+}
+
+.modal-content[data-theme="Gryffindor"] {
+  --primary-color: rgb(222, 70, 70);
+  --primary-img: url(imgs/Gryffindor.png);
+}
+.modal-content[data-theme="Hufflepuff"] {
+  --primary-color: rgb(228, 204, 62);
+  --primary-img: url(imgs/Hufflepuff.png);
+}
+
+.modal-content[data-theme="Ravenclaw"] {
+  --primary-color: rgb(98, 111, 201);
+  --primary-img: url(imgs/Ravenclaw.png);
+}
+
+.modal-content[data-theme="Slytherin"] {
+  --primary-color: rgb(48, 163, 55);
+  --primary-img: url(imgs/Slytherin.png);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(imgs/wallpaper2.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Avenir", sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-bottom: -10px;
+}
+#theme-changer {
+  display: none;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -31px;
+  padding: 5px;
+  font-family: "Avenir", sans-serif; */
+}
+
+#theme {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #0c0a32;
+  background-color: #cfd4cd;
+  font-family: "Avenir", sans-serif;
+  border: solid 0.5px #0c0a32;
+  border-radius: 5px;
+  box-shadow: inset 0 0 15px rgba(207, 212, 205, 0.9);
+}
+
+.wrapper {
+  position: relative;
+  width: 800px;
+  margin: 100px auto 0;
+  padding: 10px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+ul {
+  position: relative;
+  width: 600px;
+  margin: 5px auto 0;
+  box-sizing: border-box;
+  list-style: none;
+  padding-top: 5px;
+}
+ul .name {
+  display: flex;
+  /*background: rgba(255, 255, 255, 0.1);*/
+  padding: 5px 10px;
+  color: #fff;
+  margin: 1px 0;
+  transition: 0.5s;
+  border-radius: 5px;
+  font-family: "ParryHotter";
+  font-size: 1.8rem;
+}
+
+ul .name:nth-child(0) {
+  background-color: rgba(254, 255, 255, 0.6);
+}
+ul .name:nth-child(1) {
+  background-color: rgba(255, 255, 200, 0.5);
+}
+ul .name:nth-child(2) {
+  background-color: rgba(255, 255, 100, 0.4);
+}
+ul .name:nth-child(3) {
+  background-color: rgba(255, 255, 50, 0.3);
+}
+ul .name:nth-child(4) {
+  background-color: rgba(255, 255, 20, 0.2);
+}
+ul.name:nth-child(5) {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+ul .name:nth-child(6) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+ul .name:nth-child(7) {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+ul .name:nth-child(8) {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.FULLNAME {
+  font-family: "Parry Hotter", sans-serif;
+  font-size: 1.5rem;
+  width: 250px;
+  color: #041751;
+  margin-left: 10px;
+}
+.LASTNAME {
+  font-family: "Parry Hotter", sans-serif;
+  font-size: 1.5rem;
+  width: 250px;
+  color: #041751;
+  margin-left: -180px;
+}
+.HOUSE {
+  width: 100px;
+  font-family: "Avenir", sans-serif;
+  padding: 10px;
+  margin-right: 20px;
+  text-align: center;
+  font-size: 1em;
+}
+ul .name:hover {
+  transform: scale(1.06);
+  background: #88b1d7;
+}
+h1.page-title {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0.5rem;
+  color: #fff;
+  font-family: "ParryHotter", sans-serif;
+  text-shadow: 2px 2px #0c0a32;
+  font-size: 3.2em;
+}
+/* modal -bam bam bam bam BAM! - */
+.hide {
+  display: none;
+}
+.modal-background {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  /*  background-image: url(imgs/Hufflepuff.png); */
+  background-image: var(--primary-img);
+  background-color: var(--primary-color);
+  background-repeat: no-repeat;
+  background-size: auto;
+  border: 1.5px solid #fff;
+  margin: 0 auto;
+  padding: 2.5em;
+  max-width: 100%;
+  width: 700px;
+  height: 300px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+.modal-name {
+  display: block;
+  float: right;
+  font-family: "Parry Hotter", "Times New Roman";
+  color: #fff;
+  font-size: 2em;
+  margin-right: 20px;
+  text-shadow: 2px 2px #ff0000;
+}
+.modal-description {
+  display: block;
+  text-align: left;
+  font-family: "Avenir", "Times New Roman";
+  color: #fff;
+  font-size: 2.5em;
+  margin-right: 20px;
+  margin-left: 200px;
+  text-shadow: 2px 2px #ff0000;
+}
+.main-crest {
+  max-width: 100%;
+  height: auto;
+  padding: 5px;
+  margin-top: 20px;
+}
+li {
+  cursor: pointer;
+}
+
+button.filter {
+  width: 80px;
+  height: 20px;
+  margin-top: 5px;
+  color: #0c0a32;
+  background-color: #fff;
+  font-family: "Avenir", sans-serif;
+  border: solid 0.5px #0c0a32;
+  border-radius: 5px;
+  box-shadow: inset 0 0 15px rgba(207, 212, 205, 0.9);
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+button.filter:hover {
+  color: #fff;
+  background-color: #0c0a32;
+  border: solid 0.5px #fff;
+}
+
+.filter-house {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  font-family: "Avenir", sans-serif;
+}
+#searchBar {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px;
+  font-family: "Avenir", sans-serif;
+  width: 150px;
+  height: 20px;
+  color: #0c0a32;
+  background-color: #fff;
+  font-family: "Avenir", sans-serif;
+  border: solid 0.5px #0c0a32;
+  border-radius: 5px;
+  box-shadow: inset 0 0 15px rgba(207, 212, 205, 0.9);
+  cursor: pointer;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+}
+.footer a {
+  text-decoration: none;
+  font-family: ParryHotter;
+  font-size: 1rem;
+  color: #0c0a32;
+}
+.footer a:hover {
+  text-decoration: none;
+  font-family: ParryHotter;
+  font-size: 1rem;
+  color: #88b1d7;
+}
+h6.prefect {
+  display: flex;
+  font-family: "Avenir", sans-serif;
+  font-size: 1em;
+  /*margin-top: 80px;*/
+  opacity: 0.5;
+  text-shadow: 1px 1px #ff0000;
+}
+.Admin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "ParryHotter", sans-serif;
+  margin-top: -10px;
+}
+.expelled {
+  display: flex;
+  font-family: "Avenir", sans-serif;
+  font-size: 1em;
+  opacity: 0.5;
+  text-shadow: 1px 1px #ff0000;
+}
+.promote {
+  display: flex;
+  font-family: "Avenir", sans-serif;
+  font-size: 1em;
+  opacity: 0.5;
+  text-shadow: 1px 1px #ff0000;
+}
+h6.blood-status {
+  display: flex;
+  font-size: 1em;
+}
